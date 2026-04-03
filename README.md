@@ -1,4 +1,4 @@
-# Case Study: Secured Consumer Lending Alternative to Person to Person Lending
+# Secured Consumer Lending Alternative to Person to Person Lending
 
 ## Overview
 # Stepping Stones — Secured Consumer Lending Platform
@@ -95,18 +95,6 @@ Generates 9 charts saved to `eda_charts/`:
 
 ---
 
-## Next Steps
-
-- [ ] **Model Training** (`train_model.py`) — to be run on Darwin HPC
-  - Baseline: Logistic Regression with `class_weight='balanced'`
-  - Production candidate: LightGBM with `class_weight='balanced'`
-  - Evaluation: AUC-ROC, KS statistic, precision/recall, calibration curve
-- [ ] **Feature Importance Analysis** — validate top predictors, consider dropping `int_rate` (overlaps with `sub_grade`)
-- [ ] **Save best model** as `model.pkl`
-- [ ] **Integrate `model.pkl`** into `stepping_stones_app.py` — replace heuristic PD fallback in `predict_pd()`
-- [ ] **Stage 1 Acceptance Gate** — reject/accept model using RejectStats data (if available)
-
----
 
 ## Getting Started
 1. Clone the repository
