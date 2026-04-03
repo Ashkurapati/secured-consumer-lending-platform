@@ -216,3 +216,15 @@ __marimo__/
 
 # Config file with secrets
 config.toml
+
+# Data files — too large for GitHub
+*.csv
+*.xlsx
+*.xls
+*.docx
+*.doc
+desktop.ini
+
+# Trained model — transfer separately
+*.pkl
+*.joblib
