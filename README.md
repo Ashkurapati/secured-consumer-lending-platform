@@ -36,7 +36,10 @@ secured-consumer-lending-platform/
 │   ├── script.js            # Form logic, validation, API calls
 │   └── style.css            # Styling
 │
-└── stepping_stones_app.py   # Initial beta Streamlit prototype
+├── stepping_stones_app.py   # Initial beta Streamlit prototype
+│
+├── requirements.txt         # Pinned Python dependencies
+└── run.py                   # Single entry point — starts the API from project root
 ```
 
 ---
@@ -160,13 +163,14 @@ A four-step loan application built with HTML/CSS/JavaScript frontend and FastAPI
 ### Run Locally
 
 ```bash
-pip install fastapi uvicorn lightgbm scikit-learn pandas numpy joblib
+# 1. Install dependencies
+pip install -r requirements.txt
 
-cd website
-uvicorn api:app --reload --port 8000
+# 2. Start the API (from project root)
+python run.py
 ```
 
-Then open `index.html` in your browser.
+Then open `website/index.html` in your browser.
 
 ---
 
@@ -183,7 +187,7 @@ Then open `index.html` in your browser.
 
 ```bash
 Python 3.8+
-pip install pandas numpy scikit-learn lightgbm matplotlib seaborn fastapi uvicorn joblib
+pip install -r requirements.txt
 ```
 
 > **Note:** `loan.csv` is not included due to file size. The LendingClub dataset can be obtained from Kaggle.
