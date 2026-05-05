@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stepping Stones — Loan Application</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">&#9632;</span>
+        <span class="logo-text">Stepping <strong>Stones</strong></span>
+      </div>
+      <p class="tagline">Secured Consumer Lending — Fair credit for everyone</p>
+    </div>
+  </header>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrapper">
+    <div class="progress-bar">
+      <div class="step active" id="prog-1">
+        <div class="step-circle">1</div>
+        <span>Personal Details</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="prog-2">
+        <div class="step-circle">2</div>
+        <span>Financial Details</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="prog-3">
+        <div class="step-circle">3</div>
+        <span>Guarantor</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="prog-4">
+        <div class="step-circle">4</div>
+        <span>Decision</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN FORM CONTAINER -->
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════════
+         STEP 1 — PERSONAL DETAILS
+    ════════════════════════════════════════════════════════ -->
+    <div class="form-card" id="step-1">
+      <h2>Personal Details</h2>
+      <p class="section-sub">Tell us about yourself. All information is kept confidential.</p>
+
+      <div class="form-grid-3">
+        <div class="field">
+          <label>First Name <span class="req">*</span></label>
+          <input type="text" id="first_name" required />
+        </div>
+        <div class="field">
+          <label>Middle Name</label>
+          <input type="text" id="middle_name" />
+        </div>
+        <div class="field">
+          <label>Last Name <span class="req">*</span></label>
+          <input type="text" id="last_name" required />
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="field">
+          <label>Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob" required />
+          <small>You must be at least 18 years old to apply.</small>
+        </div>
+        <div class="field">
+          <label>Social Security Number <span class="req">*</span></label>
+          <input type="password" id="ssn" maxlength="11" required />
+          <small>Your SSN is encrypted and never stored.</small>
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="field">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="field">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Street Address <span class="req">*</span></label>
+        <input type="text" id="address" required />
+      </div>
+
+      <div class="form-grid-3">
+        <div class="field">
+          <label>City <span class="req">*</span></label>
+          <input type="text" id="city" required />
+        </div>
+        <div class="field">
+          <label>State <span class="req">*</span></label>
+          <input type="text" id="state" maxlength="2" required />
+        </div>
+        <div class="field">
+          <label>ZIP Code <span class="req">*</span></label>
+          <input type="text" id="zip" maxlength="5" required />
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="field">
+          <label>Marital Status <span class="req">*</span></label>
+          <select id="marital_status" required>
+            <option value="">Select...</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+            <option value="separated">Separated</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Home Ownership <span class="req">*</span></label>
+          <select id="home_ownership" required>
+            <option value="">Select...</option>
+            <option value="MORTGAGE">Mortgage</option>
+            <option value="OWN">Own (outright)</option>
+            <option value="RENT">Rent</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-grid-3">
+        <div class="field">
+          <label>Employment Status <span class="req">*</span></label>
+          <select id="emp_status" required>
+            <option value="">Select...</option>
+            <option value="employed">Employed</option>
+            <option value="self_employed">Self-Employed</option>
+            <option value="retired">Retired</option>
+            <option value="unemployed">Unemployed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Employer Name</label>
+          <input type="text" id="employer" />
+        </div>
+        <div class="field">
+          <label>Years Employed <span class="req">*</span></label>
+          <select id="emp_length" required>
+            <option value="">Select...</option>
+            <option value="-1">Unknown / N/A</option>
+            <option value="0">Less than 1 year</option>
+            <option value="1">1 year</option>
+            <option value="2">2 years</option>
+            <option value="3">3 years</option>
+            <option value="4">4 years</option>
+            <option value="5">5 years</option>
+            <option value="6">6 years</option>
+            <option value="7">7 years</option>
+            <option value="8">8 years</option>
+            <option value="9">9 years</option>
+            <option value="10">10+ years</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <div></div>
+        <button class="btn-next" onclick="goNext(1)">Next &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         STEP 2 — FINANCIAL DETAILS
+    ════════════════════════════════════════════════════════ -->
+    <div class="form-card hidden" id="step-2">
+      <h2>Let's Talk Money</h2>
+      <p class="section-sub">Please have your latest pay stub or income documents ready.</p>
+
+      <div class="section-label">Loan Request</div>
+      <div class="form-grid-3">
+        <div class="field">
+          <label>Loan Amount ($) <span class="req">*</span></label>
+          <input type="number" id="loan_amnt" min="200" max="5000" required />
+          <small>Between $200 and $5,000</small>
+        </div>
+        <div class="field">
+          <label>Loan Purpose <span class="req">*</span></label>
+          <select id="purpose" required>
+            <option value="">Select...</option>
+            <option value="debt_consolidation">Debt Consolidation</option>
+            <option value="credit_card">Credit Card Refinancing</option>
+            <option value="home_improvement">Home Improvement</option>
+            <option value="major_purchase">Major Purchase</option>
+            <option value="medical">Medical Expenses</option>
+            <option value="car">Car / Vehicle</option>
+            <option value="moving">Moving / Relocation</option>
+            <option value="vacation">Vacation</option>
+            <option value="wedding">Wedding</option>
+            <option value="house">House</option>
+            <option value="educational">Educational</option>
+            <option value="small_business">Small Business</option>
+            <option value="renewable_energy">Renewable Energy</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Repayment Term <span class="req">*</span></label>
+          <select id="term" required>
+            <option value="">Select...</option>
+            <option value="12">12 months (1 year)</option>
+            <option value="18">18 months (1.5 years)</option>
+            <option value="24">24 months (2 years)</option>
+            <option value="36">36 months (3 years)</option>
+            <option value="48">48 months (4 years)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-label">Income &amp; Credit</div>
+      <div class="form-grid-2">
+        <div class="field">
+          <label>Annual Income ($) <span class="req">*</span></label>
+          <input type="number" id="annual_inc" min="0" required />
+          <small>Upload pay stub or income docs for verification</small>
+        </div>
+        <div class="field">
+          <label>Total Monthly Debt Payments ($) <span class="req">*</span></label>
+          <input type="number" id="monthly_debt" min="0" required />
+          <small>Add up all your existing monthly loan and credit card payments</small>
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="field">
+          <label>Credit Score <span class="req">*</span></label>
+          <input type="number" id="credit_score" min="300" max="850" required />
+          <small>Minimum 500 required. Score above 700 with low debt may waive collateral.</small>
+        </div>
+        <div class="field">
+          <label>Years Since You First Opened a Credit Account <span class="req">*</span></label>
+          <input type="number" id="credit_history_yrs" min="0" max="60" required />
+          <small>How many years ago did you open your very first loan or credit card?</small>
+        </div>
+      </div>
+
+      <!-- REVOLVING CREDIT SECTION -->
+      <div class="section-label">Revolving Credit (Credit Cards)</div>
+      <div class="explain-box">
+        <strong>What is revolving credit?</strong>
+        Credit cards and lines of credit where you borrow up to a set limit, repay it, and can borrow again.
+        Unlike a car loan (fixed payments), credit card balances go up and down they "revolve."
+        This section asks about your credit card activity only, not loans.
+      </div>
+      <div class="form-grid-3">
+        <div class="field">
+          <label>Total Credit Card Limit ($) <span class="req">*</span></label>
+          <input type="number" id="total_bc_limit" min="0" required oninput="autoCalcUtil()" />
+          <small>Add up the limits on all your credit cards combined</small>
+        </div>
+        <div class="field">
+          <label>Current Credit Card Balance ($) <span class="req">*</span></label>
+          <input type="number" id="revol_bal" min="0" required oninput="autoCalcUtil()" />
+          <small>How much you currently owe across all cards</small>
+        </div>
+        <div class="field">
+          <label>Credit Card Utilisation (%)</label>
+          <input type="number" id="revol_util" min="0" max="100" readonly style="background:#f0f4f8; cursor:not-allowed;" />
+          <small>Auto-calculated from your balance and limit above</small>
+        </div>
+      </div>
+
+      <!-- OVERALL CREDIT PROFILE SECTION -->
+      <div class="section-label">Overall Credit Profile</div>
+      <div class="explain-box">
+        <strong>What is overall credit profile?</strong>
+        This is the big picture of all your borrowing credit cards, car loans, personal loans, student loans, mortgages.
+        Unlike revolving credit (cards only), this covers every account you have ever opened.
+        Lenders use this to understand how much debt you carry in total and how long you have been managing credit.
+      </div>
+      <div class="form-grid-3">
+        <div class="field">
+          <label>Total Number of Credit Accounts <span class="req">*</span></label>
+          <input type="number" id="total_acc" min="1" required />
+          <small>All open and closed accounts — cards, loans, mortgages</small>
+        </div>
+        <div class="field">
+          <label>Average Balance Per Account ($) <span class="req">*</span></label>
+          <input type="number" id="avg_cur_bal" min="0" required />
+          <small>Total balance across all accounts divided by number of accounts</small>
+        </div>
+        <div class="field">
+          <label>Highest Credit Limit You Have Ever Had ($) <span class="req">*</span></label>
+          <input type="number" id="tot_hi_cred_lim" min="0" required />
+          <small>The maximum total credit limit across all accounts at any point</small>
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="field">
+          <label>Total Outstanding Debt, excluding mortgage ($) <span class="req">*</span></label>
+          <input type="number" id="total_bal_ex_mort" min="0" required />
+          <small>Everything you owe — cards, car loan, personal loans — but not your mortgage</small>
+        </div>
+        <div class="field">
+          <label>Years Since Your First Ever Loan (car, personal, student) <span class="req">*</span></label>
+          <input type="number" id="mo_sin_old_il_acct" min="0" required />
+          <small>Enter 0 if you have never had an installment loan before</small>
+        </div>
+      </div>
+
+      <!-- DELINQUENCY SECTION -->
+      <div class="section-label">Delinquency &amp; Public Records</div>
+      <div class="explain-box">
+        <strong>Why do we ask this?</strong>
+        These fields directly affect your risk assessment. Late payments in the past 2 years signal recent financial stress.
+        Public records such as court judgements or bankruptcies indicate serious past credit events.
+        Be honest lenders verify this through your credit report.
+      </div>
+      <div class="form-grid-3">
+        <div class="field">
+          <label>Late Payments in the Last 2 Years <span class="req">*</span></label>
+          <input type="number" id="delinq_2yrs" min="0" required />
+          <small>Number of times you were 30+ days late on any payment</small>
+        </div>
+        <div class="field">
+          <label>Public Records (court judgements, liens) <span class="req">*</span></label>
+          <input type="number" id="pub_rec" min="0" required />
+          <small>Enter 0 if none</small>
+        </div>
+        <div class="field">
+          <label>Bankruptcies <span class="req">*</span></label>
+          <input type="number" id="pub_rec_bankruptcies" min="0" required />
+          <small>Enter 0 if none</small>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack(2)">&larr; Back</button>
+        <button class="btn-next" onclick="goNext(2)">Next &rarr;</button>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         STEP 3 — GUARANTOR DETAILS
+    ════════════════════════════════════════════════════════ -->
+    <div class="form-card hidden" id="step-3">
+      <h2>Guarantor Details</h2>
+      <p class="section-sub">A guarantor reduces your collateral requirement. Their relationship to you matters.</p>
+
+      <div class="field">
+        <label>Does this application have a guarantor? <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="has_guarantor" value="yes" onchange="toggleGuarantor(true)" />
+            Yes
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="has_guarantor" value="no" onchange="toggleGuarantor(false)" checked />
+            No
+          </label>
+        </div>
+      </div>
+
+      <div id="guarantor-fields" class="hidden">
+        <div class="form-grid-2">
+          <div class="field">
+            <label>Guarantor First Name <span class="req">*</span></label>
+            <input type="text" id="g_first_name" />
+          </div>
+          <div class="field">
+            <label>Guarantor Last Name <span class="req">*</span></label>
+            <input type="text" id="g_last_name" />
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="field">
+            <label>Relationship to Borrower <span class="req">*</span></label>
+            <select id="g_relationship">
+              <option value="">Select...</option>
+              <option value="spouse">Spouse / Partner</option>
+              <option value="family">Parent / Child / Sibling</option>
+              <option value="family">Other Family</option>
+              <option value="friend">Friend / Colleague</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Guarantor Phone <span class="req">*</span></label>
+            <input type="tel" id="g_phone" />
+            <small>Must be different from borrower's phone number</small>
+          </div>
+          <div class="field">
+            <label>Guarantor Annual Income ($) <span class="req">*</span></label>
+            <input type="number" id="g_income" min="0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>How your guarantor reduces collateral:</strong>
+        <ul>
+          <li>Spouse / Partner &rarr; Buffer reduced to <strong>5%</strong> of loan amount</li>
+          <li>Family member &rarr; Buffer reduced to <strong>10%</strong> of loan amount</li>
+          <li>Friend / Colleague &rarr; Buffer reduced to <strong>15%</strong> of loan amount</li>
+          <li>No guarantor &rarr; Buffer set to <strong>25%</strong> of loan amount</li>
+        </ul>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack(3)">&larr; Back</button>
+        <button class="btn-submit" onclick="submitApplication()">Submit Application</button>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         STEP 4 — RESULTS
+    ════════════════════════════════════════════════════════ -->
+    <div class="form-card hidden" id="step-4">
+
+      <div id="loading">
+        <div class="spinner"></div>
+        <p>Analysing your application...</p>
+      </div>
+
+      <!-- Rejected -->
+      <div id="result-rejected" class="hidden">
+        <div class="result-icon rejected">&#10007;</div>
+        <h2>Application Not Approved</h2>
+        <p id="rejection-reason" class="rejection-msg"></p>
+        <button class="btn-back" onclick="goBack(4)">&larr; Start Over</button>
+      </div>
+
+      <!-- Approved -->
+      <div id="result-approved" class="hidden">
+        <div class="result-icon approved">&#10003;</div>
+        <h2>Congratulations — You're Approved!</h2>
+
+        <div class="result-grid">
+          <div class="result-card highlight">
+            <div class="result-label">Interest Rate</div>
+            <div class="result-value" id="res-rate"></div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Collateral Required</div>
+            <div class="result-value" id="res-collateral"></div>
+          </div>
+          <div class="result-card highlight">
+            <div class="result-label">Monthly Payment</div>
+            <div class="result-value" id="res-monthly"></div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Repayment Term</div>
+            <div class="result-value" id="res-term"></div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Repayment</div>
+            <div class="result-value" id="res-total"></div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="res-interest"></div>
+          </div>
+        </div>
+
+        <h3 class="schedule-title">Repayment Schedule</h3>
+        <div class="table-wrapper">
+          <table id="repayment-table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Payment</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="schedule-body"></tbody>
+          </table>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="goBack(4)">&larr; New Application</button>
+          <button class="btn-next" onclick="window.print()">Print / Save</button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Stepping Stones Secured Lending &mdash; NMLS #000000 &mdash; Equal Housing Lender</p>
+    <p>This application is subject to credit approval. All loans subject to terms and conditions.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

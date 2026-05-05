@@ -225,6 +225,9 @@ config.toml
 *.doc
 desktop.ini
 
-# Trained model — transfer separately
-*.pkl
+# HPC output logs
+*.out
+
+# Trained model — allow model.pkl for deployment
 *.joblib
+!model.pkl

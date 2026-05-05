@@ -106,6 +106,7 @@ This repository includes an optional Sphinx documentation scaffold.
 
 ### Prerequisites
 ```bash
+Python 3.8+
 pip install pandas numpy scikit-learn lightgbm matplotlib seaborn
 ```
 
