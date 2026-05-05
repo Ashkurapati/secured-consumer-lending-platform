@@ -1,6 +1,6 @@
-# Stepping Stones — Secured Consumer Lending Platform
+# Stepping Stones - Secured Consumer Lending Platform
 
-An end-to-end machine learning platform for **Probability of Default (PD)** modelling, built for Stepping Stones — a collateral-backed loan assessment platform designed for credit unions serving subprime borrowers.
+An end-to-end machine learning platform for **Probability of Default (PD)** modelling, built for Stepping Stones.
 
 The system replaces manual risk rules with a LightGBM model trained on 1.33 million real-world LendingClub loans, and exposes it through a live web application that computes collateral requirements, interest rates, and repayment schedules in real time.
 
@@ -39,16 +39,16 @@ secured-consumer-lending-platform/
 ├── stepping_stones_app.py   # Initial beta Streamlit prototype
 │
 ├── requirements.txt         # Pinned Python dependencies
-└── run.py                   # Single entry point — starts the API from project root
+└── run.py                   # Single entry point starts the API from project root
 ```
 
 ---
 
 ## Dataset
 
-- **Source:** LendingClub loan data (`loan.csv`) — 2.26M rows, 145 columns
+- **Source:** LendingClub loan data (`loan.csv`) - 2.26M rows, 145 columns
 - **After filtering:** 1,328,284 rows with confirmed loan outcomes
-- **Target variable:** `default` — binary (0 = Fully Paid, 1 = Defaulted)
+- **Target variable:** `default` - binary (0 = Fully Paid, 1 = Defaulted)
 - **Class distribution:** 78.6% paid off / 21.4% defaulted
 - **Features used:** 74 columns covering delinquency signals, borrower profile, loan details, and credit utilisation
 
@@ -58,17 +58,17 @@ secured-consumer-lending-platform/
 
 ## ML Pipeline
 
-### Step 0 — Column Validation (`peek_columns.py`)
+### Step 0 - Column Validation (`peek_columns.py`)
 Reads the header of `loan.csv` and cross-references against planned columns.
 
-### Step 1 — Data Extraction (`data_extraction.py`)
+### Step 1 - Data Extraction (`data_extraction.py`)
 - Loads `loan.csv` using `usecols` for memory efficiency (~650MB vs 2.9GB full load)
 - Drops ambiguous loan statuses: `Current`, `In Grace Period`, `Late (16–30 days)`
 - Maps `loan_status` to binary `default` column (0 = paid, 1 = defaulted)
-- Output: `clean_loanstats.csv` — 1,328,284 rows × 63 columns
+- Output: `clean_loanstats.csv` - 1,328,284 rows × 63 columns
 
-### Step 2 — Data Cleaning (`data_cleaning.py`)
-- `mths_since_*` columns: null → `999` (event never occurred — domain-driven signal)
+### Step 2 - Data Cleaning (`data_cleaning.py`)
+- `mths_since_*` columns: null → `999` (event never occurred - domain-driven signal)
 - Thin credit file columns: null → `0`
 - `pct_tl_nvr_dlq`: null → `100`
 - `emp_length`: unknown → `-1` (sentinel, not confused with 0 years)
@@ -78,18 +78,18 @@ Reads the header of `loan.csv` and cross-references against planned columns.
 - `purpose`: one-hot encoded → 14 columns
 - Output: `cleaned_loanstats.csv` — 1,328,284 rows × 76 columns, zero nulls, all numeric
 
-### Step 3 — Exploratory Data Analysis (`eda.py`)
+### Step 3 - Exploratory Data Analysis (`eda.py`)
 Generates 9 charts saved to `eda_charts/`. Key findings:
 - `grade` shows monotonic default increase: A (6.6%) → G (51.2%)
 - `int_rate` and `sub_grade` are the strongest predictors
 - 60-month loans default at 2× the rate of 36-month loans
 - Small business loans have the highest default rate by purpose
 
-### Step 4 — Train/Test Split (`split_data.py`)
+### Step 4 - Train/Test Split (`split_data.py`)
 - Stratified 80/20 split — preserves the 78/22 class ratio in both sets
 - Output: `train.csv` (1,062,627 rows) and `test.csv` (265,657 rows)
 
-### Step 5 — Model Training (`train_model.py`)
+### Step 5 - Model Training (`train_model.py`)
 Trained on Darwin HPC using SLURM workload manager.
 
 | Model | AUC | KS Statistic |
@@ -100,15 +100,15 @@ Trained on Darwin HPC using SLURM workload manager.
 - Class imbalance handled with `class_weight='balanced'`
 - Best model saved as `model.pkl`
 
-### Step 6 — Hyperparameter Tuning (`tune_model.py`)
-- RandomizedSearchCV — 20 combinations on a 200K sample
+### Step 6 - Hyperparameter Tuning (`tune_model.py`)
+- RandomizedSearchCV - 20 combinations on a 200K sample
 - Tuned AUC: 0.7332 < baseline 0.7374 → baseline model kept
 
 ---
 
 ## Why LightGBM
 
-- Tabular financial data — tree models consistently outperform neural networks
+- Tabular financial data - tree models consistently outperform neural networks
 - **Legal explainability:** ECOA/CFPB requires lenders to explain denial reasons — LightGBM provides feature importance and SHAP values; neural networks are black boxes
 - Fast inference with no GPU required at prediction time
 
@@ -124,7 +124,7 @@ The model outputs a PD score between 0 and 1 for each applicant. The borrower's 
 Collateral = (PD × LGD × Loan Amount) + (Buffer % × Loan Amount)
 ```
 
-**LGD (Loss Given Default) = 0.70** — industry standard for unsecured micro personal loans; assumes 30 cents recovery per dollar on default.
+**LGD (Loss Given Default) = 0.70** - industry standard for unsecured micro personal loans; assumes 30 cents recovery per dollar on default.
 
 **Guarantor buffers:**
 
@@ -152,13 +152,13 @@ Range: 12%–16% p.a., formula: `rate = 12% + (PD × 4%)`, rounded to nearest 0.
 
 A four-step loan application built with HTML/CSS/JavaScript frontend and FastAPI backend.
 
-**Step 1 — Personal Details:** name, date of birth (18+ required), home ownership, employment length
+**Step 1 - Personal Details:** name, date of birth (18+ required), home ownership, employment length
 
-**Step 2 — Financial Profile:** income, credit score, monthly debt, revolving credit, overall credit profile, delinquency history
+**Step 2 - Financial Profile:** income, credit score, monthly debt, revolving credit, overall credit profile, delinquency history
 
-**Step 3 — Guarantor:** optional co-signer with relationship type
+**Step 3 - Guarantor:** optional co-signer with relationship type
 
-**Step 4 — Decision:** instant approval with interest rate, collateral required, monthly payment, and full amortisation schedule — or rejection with reason
+**Step 4 - Decision:** instant approval with interest rate, collateral required, monthly payment, and full amortisation schedule or rejection with reason
 
 ### Run Locally
 
@@ -178,7 +178,7 @@ Then open `website/index.html` in your browser.
 
 - No geographic features (ZIP code, state, MSA)
 - No race, gender, age, or national origin proxies
-- No post-origination features (data leakage prevention)
+- No post origination features (data leakage prevention)
 - Model explainability via LightGBM feature importance satisfies ECOA adverse action notice requirements
 
 ---
