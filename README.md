@@ -39,7 +39,11 @@ secured-consumer-lending-platform/
 ├── stepping_stones_app.py   # Initial beta Streamlit prototype
 │
 ├── requirements.txt         # Pinned Python dependencies
-└── run.py                   # Single entry point starts the API from project root
+├── run.py                   # Single entry point — starts the API from project root
+├── Dockerfile               # Docker image definition
+├── docker-compose.yml       # Docker Compose configuration
+├── Procfile                 # Render deployment start command
+└── runtime.txt              # Python version pin for Render
 ```
 
 ---
@@ -160,7 +164,12 @@ A four-step loan application built with HTML/CSS/JavaScript frontend and FastAPI
 
 **Step 4 - Decision:** instant approval with interest rate, collateral required, monthly payment, and full amortisation schedule or rejection with reason
 
-### Run Locally
+### Live Demo
+**https://steppingstones-q6q3.onrender.com**
+
+---
+
+### Option 1 — Run Locally
 
 ```bash
 # 1. Install dependencies
@@ -170,7 +179,46 @@ pip install -r requirements.txt
 python run.py
 ```
 
-Then open `website/index.html` in your browser.
+Then open `http://localhost:8000` in your browser.
+
+---
+
+### Option 2 — Docker (works on any machine, fully offline after first build)
+
+**Requirements:** Docker Desktop installed
+
+```bash
+# Clone the repo
+git clone https://github.com/Ashkurapati/secured-consumer-lending-platform.git
+cd secured-consumer-lending-platform
+
+# Build and run (first time — needs internet)
+docker-compose up --build
+
+# Every time after (fully offline)
+docker-compose up
+```
+
+Then open `http://localhost:8000` in your browser.
+
+To stop:
+```bash
+docker-compose down
+```
+
+---
+
+### Option 3 — Render (live public deployment)
+
+Already deployed at **https://steppingstones-q6q3.onrender.com**
+
+To deploy your own instance:
+1. Fork this repo
+2. Create a new Web Service on render.com
+3. Connect your GitHub repo
+4. Build command: `pip install -r requirements.txt`
+5. Start command: `python run.py`
+6. Add environment variable: `PYTHON_VERSION = 3.11.9`
 
 ---
 
