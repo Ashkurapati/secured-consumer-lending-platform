@@ -87,7 +87,7 @@ Generates 9 charts saved to `eda_charts/`. Key findings:
 - Output: `train.csv` (1,062,627 rows) and `test.csv` (265,657 rows)
 
 ### Step 5 — Model Training (`train_model.py`)
-Trained on Darwin HPC (university supercomputer) using SLURM workload manager.
+Trained on Darwin HPC using SLURM workload manager.
 
 | Model | AUC | KS Statistic |
 |---|---|---|
