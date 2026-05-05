@@ -1,0 +1,85 @@
+============================================================
+  Stepping Stones -- Model Training
+============================================================
+
+[1/5] Loading train.csv and test.csv ...
+      Train : 1,062,627 rows x 75 columns
+      Test  : 265,657 rows x 75 columns
+
+[2/5] Separating features and target ...
+      Features : 74 columns
+      Train default rate : 21.41%
+      Test  default rate : 21.41%
+
+[3/5] Training Logistic Regression (baseline) ...
+      This may take 3-5 minutes ...
+
+      Logistic Regression Results
+      Training time : 2445.9s
+      AUC-ROC       : 0.6324
+      KS Statistic  : 0.1953
+
+      Classification Report:
+              precision    recall  f1-score   support
+
+    Paid Off       0.84      0.60      0.70    208788
+   Defaulted       0.29      0.59      0.39     56869
+
+    accuracy                           0.60    265657
+   macro avg       0.57      0.60      0.55    265657
+weighted avg       0.73      0.60      0.64    265657
+
+
+[4/5] Training LightGBM ...
+      This may take 5-10 minutes ...
+
+      LightGBM Results
+      Training time : 34.4s
+      AUC-ROC       : 0.7374
+      KS Statistic  : 0.3474
+
+      Classification Report:
+              precision    recall  f1-score   support
+
+    Paid Off       0.88      0.67      0.76    208788
+   Defaulted       0.36      0.68      0.47     56869
+
+    accuracy                           0.67    265657
+   macro avg       0.62      0.67      0.62    265657
+weighted avg       0.77      0.67      0.70    265657
+
+
+      Top 15 Most Important Features (LightGBM):
+      annual_inc                          ##############################
+      dti                                 ###########################
+      credit_history_months               ##########################
+      int_rate                            ##########################
+      loan_amnt                           ##########################
+      total_bc_limit                      #######################
+      installment                         ######################
+      revol_bal                           ######################
+      mo_sin_old_il_acct                  #####################
+      revol_util                          ####################
+      bc_util                             ###################
+      avg_cur_bal                         ##################
+      total_bal_ex_mort                   ##################
+      tot_hi_cred_lim                     ################
+      total_acc                           ##############
+
+[5/5] Comparing models and saving best ...
+
+      Model                     AUC-ROC      KS Stat     
+      -------------------------------------------------
+      Logistic Regression       0.6324       0.1953      
+      LightGBM                  0.7374       0.3474      
+
+      Best model : LightGBM
+      Saved -> model.pkl  (6.7 MB)
+
+============================================================
+  Training complete.
+  Best model  : LightGBM
+  AUC-ROC     : 0.7374  (target > 0.70)
+  KS Statistic: 0.3474  (target > 0.40)
+  Saved as    : model.pkl
+============================================================

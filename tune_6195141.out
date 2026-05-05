@@ -1,0 +1,136 @@
+============================================================
+  Stepping Stones -- Hyperparameter Tuning
+============================================================
+
+[1/6] Loading train.csv and test.csv ...
+      Train : 1,062,627 rows x 75 columns
+      Test  : 265,657 rows x 75 columns
+
+[2/6] Separating features and target ...
+      Features          : 74 columns
+      Train default rate: 21.41%
+      Test  default rate: 21.41%
+
+[3/6] Sampling 200,000 rows for hyperparameter search ...
+      Tune sample : 200,000 rows
+      Default rate in sample : 21.41%
+      (Best params found here will be retrained on full 1,062,627 rows)
+
+[4/6] Setting up Random Search ...
+      Parameters to tune : 8
+      Combinations tried : 20
+      Cross-validation   : 3-fold stratified
+      Tuning on          : 200,000 rows (not full dataset)
+      Scoring metric     : AUC-ROC
+
+[5/6] Running Random Search ...
+      Expected time: 20-40 minutes
+
+Fitting 3 folds for each of 20 candidates, totalling 60 fits
+
+      Random Search complete in 177.7s (3.0 mins)
+
+      Best parameters found:
+        colsample_bytree          : 0.7801997007878172
+        learning_rate             : 0.011193846504387988
+        min_child_samples         : 138
+        n_estimators              : 815
+        num_leaves                : 44
+        reg_alpha                 : 0.40419867405823057
+        reg_lambda                : 0.15230688458668534
+        subsample                 : 0.6390688456025535
+
+      Best CV AUC-ROC (on 200K sample) : 0.7292
+
+      Retraining best parameters on full 1,062,627 rows ...
+      Retraining complete in 25.1s
+
+[6/6] Evaluating tuned model on test set ...
+
+      Classification Report:
+              precision    recall  f1-score   support
+
+    Paid Off       0.89      0.65      0.75    208788
+   Defaulted       0.35      0.69      0.46     56869
+
+    accuracy                           0.66    265657
+   macro avg       0.62      0.67      0.61    265657
+weighted avg       0.77      0.66      0.69    265657
+
+
+      Model                     AUC-ROC      KS Stat     
+      -------------------------------------------------
+      Baseline LightGBM         0.7374       0.3474      
+      Tuned LightGBM            0.7332       0.3397      
+
+      AUC improvement : -0.0042
+      KS  improvement : -0.0077
+
+      Tuned model did not improve on baseline.
+      Keeping existing model.pkl (baseline LightGBM AUC 0.7374)
+
+============================================================
+  Tuning complete.
+  Tuned LightGBM  AUC-ROC : 0.7332  (baseline: 0.7374)
+  Tuned LightGBM  KS Stat : 0.3397   (baseline: 0.3474)
+============================================================
+[CV] END colsample_bytree=0.7836995567863468, learning_rate=0.040033775002511963, min_child_samples=153, n_estimators=630, num_leaves=52, reg_alpha=0.028205789513550128, reg_lambda=0.36099938613341237, subsample=0.9754210836063001; total time=  20.6s
+[CV] END colsample_bytree=0.7700623497964979, learning_rate=0.028714749658136994, min_child_samples=53, n_estimators=1202, num_leaves=48, reg_alpha=0.3875664116805573, reg_lambda=0.46974947078209456, subsample=0.9579309401710595; total time=  34.5s
+[CV] END colsample_bytree=0.602208846849441, learning_rate=0.08339152856093507, min_child_samples=130, n_estimators=891, num_leaves=65, reg_alpha=0.3950877702656028, reg_lambda=0.3029799873905057, subsample=0.9705203514053395; total time=  27.7s
+[CV] END colsample_bytree=0.9771414282231924, learning_rate=0.06389789198396824, min_child_samples=135, n_estimators=1077, num_leaves=72, reg_alpha=0.4040601897822085, reg_lambda=0.31670187825521173, subsample=0.9485842360750871; total time=  35.1s
+[CV] END colsample_bytree=0.7836995567863468, learning_rate=0.040033775002511963, min_child_samples=153, n_estimators=630, num_leaves=52, reg_alpha=0.028205789513550128, reg_lambda=0.36099938613341237, subsample=0.9754210836063001; total time=  22.3s
+[CV] END colsample_bytree=0.8391599915244341, learning_rate=0.09296868115208051, min_child_samples=89, n_estimators=1219, num_leaves=112, reg_alpha=0.2698460661945399, reg_lambda=0.2933755828319241, subsample=0.9861021229056552; total time=  47.8s
+[CV] END colsample_bytree=0.9583054382694077, learning_rate=0.052783320086390056, min_child_samples=145, n_estimators=984, num_leaves=53, reg_alpha=0.3022086896389086, reg_lambda=0.26992054565083656, subsample=0.6812244898939077; total time=  31.9s
+[CV] END colsample_bytree=0.9887128330883843, learning_rate=0.09662025654479, min_child_samples=88, n_estimators=1909, num_leaves=33, reg_alpha=0.15043915490838483, reg_lambda=0.1424202471887338, subsample=0.6147547789418131; total time=  45.9s
+[CV] END colsample_bytree=0.6003115063364057, learning_rate=0.09929904033620957, min_child_samples=107, n_estimators=521, num_leaves=119, reg_alpha=0.14561457009902096, reg_lambda=0.30592644736118974, subsample=0.6557975442608167; total time=  20.5s
+[CV] END colsample_bytree=0.8736932106048627, learning_rate=0.049613724436564116, min_child_samples=57, n_estimators=534, num_leaves=108, reg_alpha=0.1955303037866204, reg_lambda=0.09111804389403116, subsample=0.902144564127061; total time=  21.3s
+[CV] END colsample_bytree=0.602208846849441, learning_rate=0.08339152856093507, min_child_samples=130, n_estimators=891, num_leaves=65, reg_alpha=0.3950877702656028, reg_lambda=0.3029799873905057, subsample=0.9705203514053395; total time=  28.6s
+[CV] END colsample_bytree=0.9771414282231924, learning_rate=0.06389789198396824, min_child_samples=135, n_estimators=1077, num_leaves=72, reg_alpha=0.4040601897822085, reg_lambda=0.31670187825521173, subsample=0.9485842360750871; total time=  36.0s
+[CV] END colsample_bytree=0.9887128330883843, learning_rate=0.09662025654479, min_child_samples=88, n_estimators=1909, num_leaves=33, reg_alpha=0.15043915490838483, reg_lambda=0.1424202471887338, subsample=0.6147547789418131; total time=  44.8s
+[CV] END colsample_bytree=0.6003115063364057, learning_rate=0.09929904033620957, min_child_samples=107, n_estimators=521, num_leaves=119, reg_alpha=0.14561457009902096, reg_lambda=0.30592644736118974, subsample=0.6557975442608167; total time=  20.9s
+[CV] END colsample_bytree=0.7700623497964979, learning_rate=0.028714749658136994, min_child_samples=53, n_estimators=1202, num_leaves=48, reg_alpha=0.3875664116805573, reg_lambda=0.46974947078209456, subsample=0.9579309401710595; total time=  37.2s
+[CV] END colsample_bytree=0.8663689426469987, learning_rate=0.06321680089369544, min_child_samples=84, n_estimators=1460, num_leaves=77, reg_alpha=0.3566223936114975, reg_lambda=0.3803925243084487, subsample=0.8245108790277985; total time=  49.0s
+[CV] END colsample_bytree=0.9887128330883843, learning_rate=0.09662025654479, min_child_samples=88, n_estimators=1909, num_leaves=33, reg_alpha=0.15043915490838483, reg_lambda=0.1424202471887338, subsample=0.6147547789418131; total time=  45.5s
+[CV] END colsample_bytree=0.7801997007878172, learning_rate=0.011193846504387988, min_child_samples=138, n_estimators=815, num_leaves=44, reg_alpha=0.40419867405823057, reg_lambda=0.15230688458668534, subsample=0.6390688456025535; total time=  32.4s
+[CV] END colsample_bytree=0.8428136990746738, learning_rate=0.0348399263820289, min_child_samples=64, n_estimators=564, num_leaves=119, reg_alpha=0.49344346830025865, reg_lambda=0.3861223846483287, subsample=0.679486272613669; total time=  25.6s
+[CV] END colsample_bytree=0.8604308102007778, learning_rate=0.09234637079894026, min_child_samples=121, n_estimators=1279, num_leaves=64, reg_alpha=0.047705058245205656, reg_lambda=0.18540912609913318, subsample=0.8675365010654429; total time=  38.8s
+[CV] END colsample_bytree=0.6479461469334731, learning_rate=0.040385365426326515, min_child_samples=108, n_estimators=1897, num_leaves=62, reg_alpha=0.25939531087168305, reg_lambda=0.3515094794475889, subsample=0.7454518409517176; total time=  58.0s
+[CV] END colsample_bytree=0.6003115063364057, learning_rate=0.09929904033620957, min_child_samples=107, n_estimators=521, num_leaves=119, reg_alpha=0.14561457009902096, reg_lambda=0.30592644736118974, subsample=0.6557975442608167; total time=  20.5s
+[CV] END colsample_bytree=0.8736932106048627, learning_rate=0.049613724436564116, min_child_samples=57, n_estimators=534, num_leaves=108, reg_alpha=0.1955303037866204, reg_lambda=0.09111804389403116, subsample=0.902144564127061; total time=  21.3s
+[CV] END colsample_bytree=0.8428136990746738, learning_rate=0.0348399263820289, min_child_samples=64, n_estimators=564, num_leaves=119, reg_alpha=0.49344346830025865, reg_lambda=0.3861223846483287, subsample=0.679486272613669; total time=  25.7s
+[CV] END colsample_bytree=0.9583054382694077, learning_rate=0.052783320086390056, min_child_samples=145, n_estimators=984, num_leaves=53, reg_alpha=0.3022086896389086, reg_lambda=0.26992054565083656, subsample=0.6812244898939077; total time=  30.4s
+[CV] END colsample_bytree=0.6479461469334731, learning_rate=0.040385365426326515, min_child_samples=108, n_estimators=1897, num_leaves=62, reg_alpha=0.25939531087168305, reg_lambda=0.3515094794475889, subsample=0.7454518409517176; total time=  58.4s
+[CV] END colsample_bytree=0.7801997007878172, learning_rate=0.011193846504387988, min_child_samples=138, n_estimators=815, num_leaves=44, reg_alpha=0.40419867405823057, reg_lambda=0.15230688458668534, subsample=0.6390688456025535; total time=  31.0s
+[CV] END colsample_bytree=0.8391599915244341, learning_rate=0.09296868115208051, min_child_samples=89, n_estimators=1219, num_leaves=112, reg_alpha=0.2698460661945399, reg_lambda=0.2933755828319241, subsample=0.9861021229056552; total time=  42.3s
+[CV] END colsample_bytree=0.9771414282231924, learning_rate=0.06389789198396824, min_child_samples=135, n_estimators=1077, num_leaves=72, reg_alpha=0.4040601897822085, reg_lambda=0.31670187825521173, subsample=0.9485842360750871; total time=  35.0s
+[CV] END colsample_bytree=0.8438257335919588, learning_rate=0.05524111209059753, min_child_samples=103, n_estimators=1354, num_leaves=126, reg_alpha=0.45413294298332685, reg_lambda=0.11978094533348621, subsample=0.6579579488364892; total time=  50.9s
+[CV] END colsample_bytree=0.7168578594140873, learning_rate=0.04297256589643225, min_child_samples=100, n_estimators=1767, num_leaves=94, reg_alpha=0.23338144662398996, reg_lambda=0.4299702033681603, subsample=0.8721230154351118; total time= 1.0min
+[CV] END colsample_bytree=0.9083868719818244, learning_rate=0.054441603672795165, min_child_samples=186, n_estimators=706, num_leaves=45, reg_alpha=0.05544541040591566, reg_lambda=0.21966825093288506, subsample=0.6806876809341584; total time=  21.7s
+[CV] END colsample_bytree=0.9214688307596458, learning_rate=0.026791305299743225, min_child_samples=79, n_estimators=1854, num_leaves=122, reg_alpha=0.17814891903848745, reg_lambda=0.453414220772877, subsample=0.7088528997538541; total time= 1.3min
+[CV] END colsample_bytree=0.7168578594140873, learning_rate=0.04297256589643225, min_child_samples=100, n_estimators=1767, num_leaves=94, reg_alpha=0.23338144662398996, reg_lambda=0.4299702033681603, subsample=0.8721230154351118; total time= 1.0min
+[CV] END colsample_bytree=0.9083868719818244, learning_rate=0.054441603672795165, min_child_samples=186, n_estimators=706, num_leaves=45, reg_alpha=0.05544541040591566, reg_lambda=0.21966825093288506, subsample=0.6806876809341584; total time=  21.7s
+[CV] END colsample_bytree=0.9214688307596458, learning_rate=0.026791305299743225, min_child_samples=79, n_estimators=1854, num_leaves=122, reg_alpha=0.17814891903848745, reg_lambda=0.453414220772877, subsample=0.7088528997538541; total time= 1.3min
+[CV] END colsample_bytree=0.8736932106048627, learning_rate=0.049613724436564116, min_child_samples=57, n_estimators=534, num_leaves=108, reg_alpha=0.1955303037866204, reg_lambda=0.09111804389403116, subsample=0.902144564127061; total time=  22.3s
+[CV] END colsample_bytree=0.8391599915244341, learning_rate=0.09296868115208051, min_child_samples=89, n_estimators=1219, num_leaves=112, reg_alpha=0.2698460661945399, reg_lambda=0.2933755828319241, subsample=0.9861021229056552; total time=  47.8s
+[CV] END colsample_bytree=0.9583054382694077, learning_rate=0.052783320086390056, min_child_samples=145, n_estimators=984, num_leaves=53, reg_alpha=0.3022086896389086, reg_lambda=0.26992054565083656, subsample=0.6812244898939077; total time=  31.8s
+[CV] END colsample_bytree=0.6479461469334731, learning_rate=0.040385365426326515, min_child_samples=108, n_estimators=1897, num_leaves=62, reg_alpha=0.25939531087168305, reg_lambda=0.3515094794475889, subsample=0.7454518409517176; total time= 1.0min
+[CV] END colsample_bytree=0.749816047538945, learning_rate=0.09556428757689245, min_child_samples=156, n_estimators=1595, num_leaves=91, reg_alpha=0.2984250789732435, reg_lambda=0.22291637642679557, subsample=0.6399899663272012; total time=  56.5s
+[CV] END colsample_bytree=0.602208846849441, learning_rate=0.08339152856093507, min_child_samples=130, n_estimators=891, num_leaves=65, reg_alpha=0.3950877702656028, reg_lambda=0.3029799873905057, subsample=0.9705203514053395; total time=  28.5s
+[CV] END colsample_bytree=0.9214688307596458, learning_rate=0.026791305299743225, min_child_samples=79, n_estimators=1854, num_leaves=122, reg_alpha=0.17814891903848745, reg_lambda=0.453414220772877, subsample=0.7088528997538541; total time= 1.3min
+[CV] END colsample_bytree=0.749816047538945, learning_rate=0.09556428757689245, min_child_samples=156, n_estimators=1595, num_leaves=91, reg_alpha=0.2984250789732435, reg_lambda=0.22291637642679557, subsample=0.6399899663272012; total time=  58.7s
+[CV] END colsample_bytree=0.8663689426469987, learning_rate=0.06321680089369544, min_child_samples=84, n_estimators=1460, num_leaves=77, reg_alpha=0.3566223936114975, reg_lambda=0.3803925243084487, subsample=0.8245108790277985; total time=  49.5s
+[CV] END colsample_bytree=0.8438257335919588, learning_rate=0.05524111209059753, min_child_samples=103, n_estimators=1354, num_leaves=126, reg_alpha=0.45413294298332685, reg_lambda=0.11978094533348621, subsample=0.6579579488364892; total time=  58.2s
+[CV] END colsample_bytree=0.7801997007878172, learning_rate=0.011193846504387988, min_child_samples=138, n_estimators=815, num_leaves=44, reg_alpha=0.40419867405823057, reg_lambda=0.15230688458668534, subsample=0.6390688456025535; total time=  34.0s
+[CV] END colsample_bytree=0.8428136990746738, learning_rate=0.0348399263820289, min_child_samples=64, n_estimators=564, num_leaves=119, reg_alpha=0.49344346830025865, reg_lambda=0.3861223846483287, subsample=0.679486272613669; total time=  26.8s
+[CV] END colsample_bytree=0.8663689426469987, learning_rate=0.06321680089369544, min_child_samples=84, n_estimators=1460, num_leaves=77, reg_alpha=0.3566223936114975, reg_lambda=0.3803925243084487, subsample=0.8245108790277985; total time=  49.0s
+[CV] END colsample_bytree=0.8438257335919588, learning_rate=0.05524111209059753, min_child_samples=103, n_estimators=1354, num_leaves=126, reg_alpha=0.45413294298332685, reg_lambda=0.11978094533348621, subsample=0.6579579488364892; total time=  58.6s
+[CV] END colsample_bytree=0.7168578594140873, learning_rate=0.04297256589643225, min_child_samples=100, n_estimators=1767, num_leaves=94, reg_alpha=0.23338144662398996, reg_lambda=0.4299702033681603, subsample=0.8721230154351118; total time= 1.1min
+[CV] END colsample_bytree=0.9083868719818244, learning_rate=0.054441603672795165, min_child_samples=186, n_estimators=706, num_leaves=45, reg_alpha=0.05544541040591566, reg_lambda=0.21966825093288506, subsample=0.6806876809341584; total time=  22.5s
+[CV] END colsample_bytree=0.8590760482165449, learning_rate=0.010046833929578424, min_child_samples=52, n_estimators=1882, num_leaves=100, reg_alpha=0.25537365128878287, reg_lambda=0.2087055015743895, subsample=0.6888431241882921; total time= 1.4min
+[CV] END colsample_bytree=0.749816047538945, learning_rate=0.09556428757689245, min_child_samples=156, n_estimators=1595, num_leaves=91, reg_alpha=0.2984250789732435, reg_lambda=0.22291637642679557, subsample=0.6399899663272012; total time=  57.2s
+[CV] END colsample_bytree=0.8604308102007778, learning_rate=0.09234637079894026, min_child_samples=121, n_estimators=1279, num_leaves=64, reg_alpha=0.047705058245205656, reg_lambda=0.18540912609913318, subsample=0.8675365010654429; total time=  38.9s
+[CV] END colsample_bytree=0.8590760482165449, learning_rate=0.010046833929578424, min_child_samples=52, n_estimators=1882, num_leaves=100, reg_alpha=0.25537365128878287, reg_lambda=0.2087055015743895, subsample=0.6888431241882921; total time= 1.3min
+[CV] END colsample_bytree=0.7836995567863468, learning_rate=0.040033775002511963, min_child_samples=153, n_estimators=630, num_leaves=52, reg_alpha=0.028205789513550128, reg_lambda=0.36099938613341237, subsample=0.9754210836063001; total time=  21.0s
+[CV] END colsample_bytree=0.7700623497964979, learning_rate=0.028714749658136994, min_child_samples=53, n_estimators=1202, num_leaves=48, reg_alpha=0.3875664116805573, reg_lambda=0.46974947078209456, subsample=0.9579309401710595; total time=  36.4s
+[CV] END colsample_bytree=0.8604308102007778, learning_rate=0.09234637079894026, min_child_samples=121, n_estimators=1279, num_leaves=64, reg_alpha=0.047705058245205656, reg_lambda=0.18540912609913318, subsample=0.8675365010654429; total time=  38.8s
+[CV] END colsample_bytree=0.8590760482165449, learning_rate=0.010046833929578424, min_child_samples=52, n_estimators=1882, num_leaves=100, reg_alpha=0.25537365128878287, reg_lambda=0.2087055015743895, subsample=0.6888431241882921; total time= 1.3min

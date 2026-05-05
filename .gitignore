@@ -225,8 +225,10 @@ config.toml
 *.doc
 desktop.ini
 
-# HPC output logs
+# HPC output logs — allow training and tuning logs as evidence
 *.out
+!lgbm_6194638.out
+!tune_6195141.out
 
 # Trained model — allow model.pkl for deployment
 *.joblib
