@@ -1,5 +1,5 @@
 // ── Config ──────────────────────────────────────────────────
-const API_URL = "http://localhost:8000/api/predict";
+const API_URL = "/api/predict";
 let currentStep = 1;
 const TOTAL_STEPS = 4;
 

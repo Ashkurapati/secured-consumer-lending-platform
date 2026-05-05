@@ -21,6 +21,8 @@ import numpy as np
 import pandas as pd
 import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app = FastAPI(title="Stepping Stones Lending API")
 
 app.add_middleware(
@@ -30,11 +32,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve frontend from website/ folder
-app.mount("/static", StaticFiles(directory="."), name="static")
-
 # Load model once at startup
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "..", "model.pkl")
 model = joblib.load(MODEL_PATH)
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -294,3 +293,6 @@ def predict(data: LoanApplication):
         "total_interest":     round(total_interest, 2),
         "repayment_schedule": schedule,
     }
+
+# Serve frontend — must come after all API routes
+app.mount("/", StaticFiles(directory=BASE_DIR, html=True), name="static")
