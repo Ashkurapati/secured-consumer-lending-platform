@@ -1,6 +1,6 @@
 # Stepping Stones - Secured Consumer Lending Platform
 
-An end-to-end machine learning platform for **Probability of Default (PD)** modelling, built for Stepping Stones
+An end-to-end machine learning platform for **Probability of Default (PD)** modelling, built for Stepping Stones.
 
 The system replaces manual risk rules with a LightGBM model trained on 1.33 million real-world LendingClub loans, and exposes it through a live web application that computes collateral requirements, interest rates, and repayment schedules in real time.
 
@@ -152,13 +152,13 @@ Range: 12%–16% p.a., formula: `rate = 12% + (PD × 4%)`, rounded to nearest 0.
 
 A four-step loan application built with HTML/CSS/JavaScript frontend and FastAPI backend.
 
-**Step 1 — Personal Details:** name, date of birth (18+ required), home ownership, employment length
+**Step 1 - Personal Details:** name, date of birth (18+ required), home ownership, employment length
 
-**Step 2 — Financial Profile:** income, credit score, monthly debt, revolving credit, overall credit profile, delinquency history
+**Step 2 - Financial Profile:** income, credit score, monthly debt, revolving credit, overall credit profile, delinquency history
 
-**Step 3 — Guarantor:** optional co-signer with relationship type
+**Step 3 - Guarantor:** optional co-signer with relationship type
 
-**Step 4 — Decision:** instant approval with interest rate, collateral required, monthly payment, and full amortisation schedule or rejection with reason
+**Step 4 - Decision:** instant approval with interest rate, collateral required, monthly payment, and full amortisation schedule or rejection with reason
 
 ### Run Locally
 
