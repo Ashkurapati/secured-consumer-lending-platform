@@ -31,7 +31,7 @@ secured-consumer-lending-platform/
 ├── eda_charts/              # Generated EDA visualisations (9 PNG files)
 │
 ├── website/
-│   ├── api.py               # FastAPI backend — loads model, serves predictions
+│   ├── api.py               # FastAPI backend - loads model, serves predictions
 │   ├── index.html           # Multi-step loan application frontend
 │   ├── script.js            # Form logic, validation, API calls
 │   └── style.css            # Styling
@@ -39,7 +39,7 @@ secured-consumer-lending-platform/
 ├── stepping_stones_app.py   # Initial beta Streamlit prototype
 │
 ├── requirements.txt         # Pinned Python dependencies
-├── run.py                   # Single entry point — starts the API from project root
+├── run.py                   # Single entry point - starts the API from project root
 ├── Dockerfile               # Docker image definition
 ├── docker-compose.yml       # Docker Compose configuration
 ├── Procfile                 # Render deployment start command
@@ -169,7 +169,7 @@ A four-step loan application built with HTML/CSS/JavaScript frontend and FastAPI
 
 ---
 
-### Option 1 — Run Locally
+### Option 1 - Run Locally
 
 ```bash
 # 1. Install dependencies
@@ -183,7 +183,7 @@ Then open `http://localhost:8000` in your browser.
 
 ---
 
-### Option 2 — Docker (works on any machine, fully offline after first build)
+### Option 2 - Docker (works on any machine, fully offline after first build)
 
 **Requirements:** Docker Desktop installed
 
@@ -208,7 +208,7 @@ docker-compose down
 
 ---
 
-### Option 3 — Render (live public deployment)
+### Option 3 - Render (live public deployment)
 
 Already deployed at **https://steppingstones-q6q3.onrender.com**
 
