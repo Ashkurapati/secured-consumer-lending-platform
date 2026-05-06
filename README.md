@@ -113,7 +113,7 @@ Trained on Darwin HPC using SLURM workload manager.
 ## Why LightGBM
 
 - Tabular financial data - tree models consistently outperform neural networks
-- **Legal explainability:** ECOA/CFPB requires lenders to explain denial reasons — LightGBM provides feature importance and SHAP values; neural networks are black boxes
+- **Legal explainability:** ECOA/CFPB requires lenders to explain denial reasons - LightGBM provides feature importance and SHAP values; neural networks are black boxes
 - Fast inference with no GPU required at prediction time
 
 ---
